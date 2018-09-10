@@ -1,0 +1,54 @@
+loginPath:
+    path:  /login
+    defaults: { _controller: AppBundle:login:login }
+    requirements:
+        _method:  POST
+
+getPosts:
+    path:  /getposts
+    defaults: { _controller: AppBundle:posts:getposts }
+    requirements:
+        _method:  POST
+
+deletePost:
+    path:  /deletepost
+    defaults: { _controller: AppBundle:adminPosts:deletepost }
+    requirements:
+        _method:  POST
+
+postDetails:
+    path:  /post/{slug}
+    defaults: { _controller: AppBundle:posts:postdetails }
+    requirements:
+        slug: .*/$
+        _method:  GET
+
+
+getPostComments:
+    path:  /getpostcomments
+    defaults: { _controller: AppBundle:comments:getPostComments }
+    requirements:
+        _method:  POST
+
+postDetailsData:
+    path:  /getdata/post/{slug}
+    defaults: { _controller: AppBundle:posts:postDetailsData }
+    requirements:
+        slug: .*/$
+        _method:  GET
+
+addComment:
+    path:  /addcomment
+    defaults: { _controller: AppBundle:comments:addComment }
+    requirements:
+        _method:  POST
+addPost:
+    path:  /admin/add-post
+    defaults: { _controller: AppBundle:adminPosts:addPost }
+    requirements:
+        _method:  POST
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
